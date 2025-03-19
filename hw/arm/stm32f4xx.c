@@ -27,6 +27,10 @@
 #include "hw/block/flash.h"
 #include "sysemu/blockdev.h" // drive_get
 
+// FIXME: dafuq
+void qemu_system_reset_request(void);
+
+
 static const char *stm32f4xx_periph_name_arr[] = {
     ENUM_STRING(STM32_UART1),
     ENUM_STRING(STM32_UART2),

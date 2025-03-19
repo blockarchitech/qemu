@@ -9,6 +9,7 @@
 #include <glob.h>
 
 #include "ui/egl-helpers.h"
+#include <X11/X.h>
 
 EGLDisplay *qemu_egl_display;
 EGLConfig qemu_egl_config;

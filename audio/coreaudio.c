@@ -22,6 +22,8 @@
  * THE SOFTWARE.
  */
 
+#ifdef __APPLE__
+
 #include <CoreAudio/CoreAudio.h>
 #include <string.h>             /* strerror */
 #include <pthread.h>            /* pthread_X */
@@ -553,3 +555,5 @@ struct audio_driver coreaudio_audio_driver = {
     .voice_size_out = sizeof (coreaudioVoiceOut),
     .voice_size_in  = 0
 };
+
+#endif /* __APPLE__ */

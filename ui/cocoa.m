@@ -22,6 +22,8 @@
  * THE SOFTWARE.
  */
 
+#ifdef __APPLE__
+
 #import <Cocoa/Cocoa.h>
 #include <crt_externs.h>
 
@@ -1473,3 +1475,5 @@ void cocoa_display_init(DisplayState *ds, int full_screen)
      */
     addRemovableDevicesMenuItems();
 }
+
+#endif /* __APPLE__ */

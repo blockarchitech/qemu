@@ -3,6 +3,7 @@
 
 #include <epoxy/gl.h>
 #include <epoxy/egl.h>
+#include <X11/X.h>
 
 extern EGLDisplay *qemu_egl_display;
 extern EGLConfig qemu_egl_config;

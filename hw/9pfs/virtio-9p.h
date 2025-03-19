@@ -7,6 +7,7 @@
 #include <utime.h>
 #include <sys/resource.h>
 #include <glib.h>
+#include <sys/sysmacros.h>
 #include "standard-headers/linux/virtio_9p.h"
 #include "hw/virtio/virtio.h"
 #include "hw/virtio/virtio-9p.h"
