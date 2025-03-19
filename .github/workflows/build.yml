@@ -1,0 +1,23 @@
+name: Build QEMU
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: sudo apt-get install -y build-essential libglib2.0-dev libpixman-1-dev libusb-1.0-0-dev libiscsi-dev librados-dev libncurses5-dev libseccomp-dev libgnutls-dev libssh2-1-dev libspice-server-dev libspice-protocol-dev libnss3-dev libgtk-3-dev libvte-2.90-dev libsdl1.2-dev libpng12-dev
+      - name: Build QEMU
+        run: |
+          ./configure --enable-tcg-interpreter --extra-ldflags=-g \
+          --with-coroutine=gthread --enable-debug-tcg \
+          --enable-debug --disable-werror --target-list="arm-softmmu" \
+          --extra-cflags=-DDEBUG_CLKTREE --extra-cflags=-DDEBUG_STM32_RCC \
+          --extra-cflags=-DDEBUG_STM32_UART --extra-cflags=-DSTM32_UART_NO_BAUD_DELAY \
+          --extra-cflags=-DDEBUG_GIC
+          make
