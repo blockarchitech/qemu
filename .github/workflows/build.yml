@@ -27,3 +27,7 @@ jobs:
           --extra-cflags=-DDEBUG_STM32_UART --extra-cflags=-DSTM32_UART_NO_BAUD_DELAY \
           --extra-cflags=-DDEBUG_GIC --python=/usr/bin/python2.7
           make
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qemu-system-arm
+          path: ./arm-softmmu/qemu-system-arm
