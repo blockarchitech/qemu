@@ -7,7 +7,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    container:
+      image: python:2.7
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
@@ -19,5 +21,5 @@ jobs:
           --enable-debug --disable-werror --target-list="arm-softmmu" \
           --extra-cflags=-DDEBUG_CLKTREE --extra-cflags=-DDEBUG_STM32_RCC \
           --extra-cflags=-DDEBUG_STM32_UART --extra-cflags=-DSTM32_UART_NO_BAUD_DELAY \
-          --extra-cflags=-DDEBUG_GIC
+          --extra-cflags=-DDEBUG_GIC --python=/usr/bin/python2.7
           make
