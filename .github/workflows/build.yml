@@ -12,6 +12,8 @@ jobs:
       image: python:2.7
     steps:
       - uses: actions/checkout@v2
+      - name: Update
+        run: apt-get update
       - name: Install dependencies
         run: apt-get install -y build-essential libglib2.0-dev libpixman-1-dev libusb-1.0-0-dev libiscsi-dev librados-dev libncurses5-dev libseccomp-dev libssh2-1-dev libspice-server-dev libspice-protocol-dev libnss3-dev libgtk-3-dev libsdl1.2-dev
       - name: Build QEMU
